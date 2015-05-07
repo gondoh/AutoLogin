@@ -28,7 +28,7 @@ class AutoLoginControllerEventListener extends BcControllerEventListener {
 			$authModelName = $Controller->BcAuth->authenticate['Form']['userModel'];
 			$authModel = ClassRegistry::init($authModelName);
 			$user = $authModel->find('first');
-			$user[$authModelName] = $user['UserGroup'];
+			$user[$authModelName]['UserGroup'] = $user['UserGroup'];
 			
 			$Controller->BcAuth->login($user[$authModelName]);
 		} 
